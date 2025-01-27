@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- defines the character encoding and ensures compatibility with various devices and browsers -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title of web page shown on browser -->
+    <title>Home Page</title>
+    <!-- link to css file  [1]-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- main container for the content  -->
+    <div class="container">
+        <!-- welcome message  -->
+        <h1>Welcome to Arya's Clothing Store</h1>
+        <!-- subtitle for browsing category  -->
+        <h2>Browse by Category</h2>
+
+        <!-- navigation bar for categories [2]  -->
+        <nav class="navbar">
+            <!-- unordered list of categories  -->
+            <ul>
+                <!-- clicking on these will search for the respective category [1] -->
+                <li><a href="/search?searchword=blouses">Blouses</a></li>
+                <li><a href="/search?searchword=casual bottoms">Casual Bottoms</a></li>
+                <li><a href="/search?searchword=chemises">Chemises</a></li>
+                <li><a href="/search?searchword=dresses">Dresses</a></li>
+                <li><a href="/search?searchword=fine gauge">Fine Gauge</a></li>
+                <li><a href="/search?searchword=blouses">Blouses</a></li>
+                <li><a href="/search?searchword=intimates">Intimates</a></li>
+                <li><a href="/search?searchword=jackets">Jackets</a></li>
+                <li><a href="/search?searchword=jeans">Jeans</a></li>
+                <li><a href="/search?searchword=knits">Knits</a></li>
+                <li><a href="/search?searchword=layering">Layering</a></li>
+                <li><a href="/search?searchword=legwear">Legwear</a></li>
+                <li><a href="/search?searchword=lounge">Lounge</a></li>
+                <li><a href="/search?searchword=pants">Pants</a></li>
+                <li><a href="/search?searchword=shorts">Shorts</a></li>
+                <li><a href="/search?searchword=skirts">Skirts</a></li>
+                <li><a href="/search?searchword=sleep">Sleep</a></li>
+                <li><a href="/search?searchword=sweaters">Sweaters</a></li>
+                <li><a href="/search?searchword=swim">Swim</a></li>
+            </ul>
+        </nav>
+
+        <!-- form for users to search items/categories [3] -->
+        <form action="/search" method="POST" class="search-form">
+            <!-- input field for entering search term [4] -->
+            <input type="text" name="searchword" placeholder="Search for items..." class="search-input">
+            <!-- button to submit the search query  -->
+            <button type="submit" class="search-button">Search</button>
+        </form>
+
+        <!-- error message to display for empty string [6]  -->
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+<!--
+References: I am putting all the references for html files here
+[1] HTML Link: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+[2] Navigation Bar: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
+[3] Form: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+[4] Taking input: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+[5] Textarea: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+[6] Usage of condition if-else: https://help.retentionscience.com/hc/en-us/articles/115003025814-How-To-Build-HTML-for-Conditional-Statements
+[7] Usage of for loop: https://community.retool.com/t/for-loop-in-html-component/17688
+[8] Selecting options: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+-->

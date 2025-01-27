@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- defines the character encoding and ensures compatibility with various devices and browsers -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title of web page shown on browser -->
+    <title>{{ item['Clothes Title'] }} - Details</title>
+    <!-- link to css file  [1] -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- main container for the content  -->
+    <div class="container">
+        <!-- displaying the clothing item's title dynamically using Flask's {{ item['Clothes Title'] }} variable -->
+        <h1>{{ item['Clothes Title'] }}</h1>
+
+        <!-- displaying the clothing item's description dynamically using Flask's {{ item['Clothes Description'] }} variable -->
+        <p><strong>Description:</strong> {{ item['Clothes Description'] }}</p>
+
+        <!-- section for displaying customer reviews -->
+        <h3>Customer Reviews</h3>
+
+        <!-- looping through all the reviews for a certain clothing item [7] -->
+        {% for review in reviews.iterrows() %}
+            <!-- displaying the clothing item's review dynamically using {{ review[1]['Review Text'] }} variable -->
+            <p><strong>Review:</strong> {{ review[1]['Review Text'] }}</p>
+        {% endfor %}
+
+        <!-- section for submitting a new review -->
+        <h3>Submit a Review</h3>
+        <!-- form for submitting a review [3] -->
+        <form action="/submit_review" method="POST" class="search-form">
+            
+            <!-- hidden field that passes the item's ID to identify which item the review belongs to [4] -->
+            <input type="hidden" name="item_id" value="{{ item['Clothing ID'] }}">
+            
+            <!-- input for Review Title  -->
+            <label for="title">Review Title:</label><br>
+            <input type="text" name="title" class="search-input" required><br><br>
+
+            <!-- input for Rating  -->
+            <label for="rating">Rating:</label><br>
+            <!-- user can select rating between 1 and 5  -->
+            <input type="number" name="rating" min="1" max="5" class="search-input" required><br><br>
+
+            <!-- input for Review Text  [5] -->
+            <label for="review_text">Review Text:</label><br>
+            <textarea name="review_text" rows="5" cols="50" class="search-input" required></textarea><br><br>
+
+            <!-- button to submit new review  -->
+            <button type="submit" class="search-button">Submit Review</button>
+        </form>
+
+        <!-- link to go back to home page [1]  -->
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>

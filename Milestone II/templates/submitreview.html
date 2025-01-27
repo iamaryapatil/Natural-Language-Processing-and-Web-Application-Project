@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- defines the character encoding and ensures compatibility with various devices and browsers -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title of web page shown on browser -->
+    <title>Review Classification</title>
+    <!-- link to css file [1]  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- main container for the content  -->
+    <div class="container">
+        <h1>Review Submitted for Classification</h1>
+        
+        <!-- displaying the predicted recommendation from the model (either 'Recommend' or 'Do Not Recommend') -->
+        <p><strong>Predicted Recommendation:</strong> {% if pred_label == 1 %} Recommend {% else %} Do Not Recommend {% endif %}</p>
+
+        <!-- display message for user to override the recommendation  -->
+        <h3>If you disagree with the recommendation, please override below:</h3>
+        
+        <!-- form for user to override the recommendation [3] -->
+        <form action="/confirm_review" method="POST">
+            <!-- hidden fields for storing the review information [4]  -->
+            <input type="hidden" name="title" value="{{ title }}">
+            <input type="hidden" name="review_text" value="{{ review_text }}">
+            <input type="hidden" name="item_id" value="{{ item_id }}">
+            
+            <!-- menu for user to select their desired recommendation [8]  -->
+            <label for="user_label">Your Final Recommendation:</label><br>
+            <select name="user_label" required>
+                <option value="1" {% if pred_label == 1 %}selected{% endif %}>Recommend</option>
+                <option value="0" {% if pred_label == 0 %}selected{% endif %}>Do Not Recommend</option>
+            </select><br><br>
+
+            <!-- button to confirm the user's desired recommendation  -->
+            <button type="submit" class="search-button">Confirm Review</button>
+        </form>
+    </div>
+</body>
+</html>

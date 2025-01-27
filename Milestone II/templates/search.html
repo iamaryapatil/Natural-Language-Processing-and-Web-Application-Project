@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- defines the character encoding and ensures compatibility with various devices and browsers -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title of web page shown on browser -->
+    <title>Search Results</title>
+    <!-- link to css file [1] -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- main container for the content  -->
+    <div class="container">
+        <!-- displaying the search string dynamically using Flask's {{ search_string }} variable -->
+        <h1>Search Results for "{{ search_string }}"</h1>
+
+        <!-- checking if there are no results [6] -->
+        {% if num_results == 0 %}
+            <p>No items found matching your search.</p>
+        {% else %}
+            <!-- if results are found  -->
+            <p>{{ num_results }} item(s) found:</p>
+            <!-- creating unordered list  -->
+            <ul class="result-list">
+            <!-- looping through each item in result list to display each item's link [7] -->
+            {% for item in results %}
+                <li class="result-item"><a href="/item/{{ item['Clothing ID'] }}">{{ item['Clothes Title'] }}</a></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <!-- link to go back to home page [1]   -->
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>

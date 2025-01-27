@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- defines the character encoding and ensures compatibility with various devices and browsers -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title of web page shown on browser -->
+    <title>Review Confirmation</title>
+    <!-- link to css file  [1] -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- main container for the content  -->
+    <div class="container">
+        <h1>Review Confirmed</h1>
+        
+        <!-- displaying the final recommendation based on the user’s decision -->
+        <p><strong>Your Final Recommendation:</strong> {% if user_label == '1' %} Recommend {% else %} Do Not Recommend {% endif %}</p>
+
+        <!-- link to go back to item details page  [1] -->
+        <a href="{{ url_for('item_details', item_id=item_id) }}" class="back-link">Back to Item Details</a>
+    </div>
+</body>
+</html>
