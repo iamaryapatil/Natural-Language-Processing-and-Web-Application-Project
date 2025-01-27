@@ -1,0 +1,143 @@
+Apply to all pages
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+
+/* Center container */
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e8e0f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Style category list */
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex; /* Align categories in a row */
+    flex-wrap: wrap; /* Allow items to wrap if screen is small */
+    justify-content: center; /* Center-align categories */
+}
+
+.category-list li {
+    margin: 5px 0;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.category-list a:hover {
+    text-decoration: underline;
+}
+
+/* Style search form */
+.search-form {
+    margin-top: 20px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 75%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Navbar style */
+.navbar {
+    background-color: #b98ce0; /* Light blue background */
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Display items in a row */
+    justify-content: flex-start; /* Align to the left */
+}
+
+.navbar li {
+    margin-right: 20px; /* Space between links */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Text color */
+    font-size: 18px; /* Font size */
+}
+
+.navbar a:hover {
+    font-weight: bold; /* Bold on hover */
+}
+
+.navbar a.active {
+    font-weight: bold; /* Bold active link */
+}
+
+/* Style for the result list */
+.result-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-item {
+    margin: 10px 0;
+}
+
+.result-item a {
+    text-decoration: none;
+    color: #501e85;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result-item a:hover {
+    text-decoration: underline;
+}
+
+/* Back to home link */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #350565;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: #8000ff;
+}
+
+/*
+Reference:
+[1] CSS basics: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
+*/
